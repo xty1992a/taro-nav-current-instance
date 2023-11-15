@@ -2,12 +2,14 @@ import React, {useContext, useEffect, useState} from 'react'
 import Taro from '@tarojs/taro'
 import {View, Text, Button} from '@tarojs/components'
 import locationStore from "../store/location";
+import {usePageId} from "../store/pageContext";
 
 interface Props {}
 
 const PageBox: React.FC<Props> = () => {
   const [pageId, setPageId] = useState('')
   const {set} = useContext(locationStore)
+  const contextPid = usePageId()
 
   useEffect(() => {
     const pid = Taro.getCurrentInstance().page?.getPageId?.()
@@ -29,6 +31,10 @@ const PageBox: React.FC<Props> = () => {
       <View className='cell'>
         <Text>pageId</Text>
         <Text>{pageId}</Text>
+      </View>
+      <View className='cell'>
+        <Text>contextPid</Text>
+        <Text>{contextPid}</Text>
       </View>
     </View>
   )

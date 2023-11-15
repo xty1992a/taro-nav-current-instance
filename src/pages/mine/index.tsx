@@ -4,6 +4,7 @@ import {View} from '@tarojs/components'
 
 import PageBox from '../../components/page_box'
 import {useModules} from '../../components/hooks'
+import {PageContext, useProvidePageId} from "../../store/pageContext";
 
 interface Props {
 }
@@ -13,9 +14,11 @@ const Index: React.FC<Props> = () => {
 
   return (
     <View>
-      {
-        modules.map(n => (<PageBox key={n} />))
-      }
+      <PageContext.Provider value={useProvidePageId()} >
+        {
+          modules.map(n => (<PageBox key={n} />))
+        }
+      </PageContext.Provider>
     </View>
   )
 }
