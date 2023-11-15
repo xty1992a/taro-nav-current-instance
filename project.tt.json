@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "tab-ins",
+  "description": "",
+  "appid": "tt3d434bfea27cc2e401",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
